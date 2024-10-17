@@ -8,7 +8,8 @@
 -- 2. Attempts to retrieve the `id` of the project from the `projects` table based on the `project_name`.
 -- 3. If the project does not exist (`project_id` is NULL), it inserts a new project with the given `project_name` and retrieves the new `project_id`.
 -- 4. Inserts a new record into the `corrections` table with the provided `user_id`, `project_id`, and `score`.
-DELIMITER / / CREATE PROCEDURE `AddBonus` (
+DELIMITER //
+CREATE PROCEDURE `AddBonus` (
     IN `user_id` INT,
     IN `project_name` VARCHAR(255),
     IN `score` INT
@@ -37,4 +38,5 @@ INSERT INTO
 VALUES
     (`user_id`, `project_id`, `score`);
 
-END / / DELIMITER;
+END
+// DELIMITER;

@@ -8,7 +8,8 @@
 --    If the sum of `weight` is 0, it returns 0 to avoid division by zero errors.
 -- 3. Only updates the `average_score` for users who have corresponding records in the `corrections` table.
 -- This ensures that the `average_score` in the `users` table is kept up-to-date based on the weighted scores in the `corrections` table.
-DELIMITER / / CREATE PROCEDURE `ComputeAverageWeightedScoreForUsers` () BEGIN
+DELIMITER //
+CREATE PROCEDURE `ComputeAverageWeightedScoreForUsers` () BEGIN
 UPDATE
     `users` AS `u`
 SET
@@ -34,4 +35,5 @@ WHERE
             `c`.`user_id` = `u`.`id`
     );
 
-END / / DELIMITER;
+END
+// DELIMITER;

@@ -5,10 +5,12 @@
 -- 1. Checks if the divisor `b` is 0.
 -- 2. If `b` is 0, it returns 0 to avoid division by zero errors.
 -- 3. If `b` is not 0, it returns the result of the division `a / b`.
-DELIMITER / / CREATE FUNCTION SafeDiv (a INT, b INT) RETURNS FLOAT DETERMINISTIC BEGIN IF b = 0 THEN RETURN 0;
+DELIMITER //
+CREATE FUNCTION SafeDiv (a INT, b INT) RETURNS FLOAT DETERMINISTIC BEGIN IF b = 0 THEN RETURN 0;
 
 END IF;
 
 RETURN a / b;
 
-END / / DELIMITER;
+END
+// DELIMITER;

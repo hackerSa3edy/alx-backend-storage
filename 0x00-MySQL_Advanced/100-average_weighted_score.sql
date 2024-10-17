@@ -8,7 +8,8 @@
 --    The weighted average is calculated as the sum of the product of `score` and `weight` divided by the sum of `weight`.
 --    Only the records where the `user_id` matches are considered.
 -- This ensures that the `average_score` in the `users` table is kept up-to-date based on the weighted scores in the `corrections` table.
-DELIMITER / / CREATE PROCEDURE `ComputeAverageWeightedScoreForUser` (IN `user_id` INT) BEGIN
+DELIMITER //
+CREATE PROCEDURE `ComputeAverageWeightedScoreForUser` (IN `user_id` INT) BEGIN
 UPDATE
     `users`
 SET
@@ -24,4 +25,5 @@ SET
 WHERE
     `id` = `user_id`;
 
-END / / DELIMITER;
+END
+// DELIMITER;

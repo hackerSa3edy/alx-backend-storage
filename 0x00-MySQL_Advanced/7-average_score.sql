@@ -5,7 +5,8 @@
 -- 1. Updates the `average_score` column in the `users` table for the specified `user_id`.
 -- 2. Sets the `average_score` to the average of the `score` values from the `corrections` table where the `user_id` matches.
 -- This ensures that the `average_score` in the `users` table is kept up-to-date based on the scores in the `corrections` table.
-DELIMITER / / CREATE PROCEDURE `ComputeAverageScoreForUser` (IN `user_id` INT) BEGIN
+DELIMITER //
+CREATE PROCEDURE `ComputeAverageScoreForUser` (IN `user_id` INT) BEGIN
 UPDATE
     `users`
 SET
@@ -20,4 +21,5 @@ SET
 WHERE
     `id` = `user_id`;
 
-END / / DELIMITER;
+END
+// DELIMITER;
