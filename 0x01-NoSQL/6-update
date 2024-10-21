@@ -1,0 +1,5 @@
+// This MongoDB query updates all documents in the "school" collection
+// where the "name" field is equal to "Holberton school".
+// It sets the "address" field to "972 Mission street".
+// The { multi: true } option ensures that all matching documents are updated.
+db.school.update( { name: "Holberton school" }, { $set: { address: "972 Mission street" } }, { multi: true } )
