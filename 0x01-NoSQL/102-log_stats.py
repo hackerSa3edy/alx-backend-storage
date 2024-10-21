@@ -52,11 +52,11 @@ def print_nginx_request_logs(nginx_collection):
         method_count = nginx_collection.count_documents({"method": method})
         print(f'\tmethod {method}: {method_count}')
 
-    print_nginx_ips(nginx_collection)
-
     status_check_count = nginx_collection.count_documents(
         {"method": "GET", "path": "/status"})
     print(f'{status_check_count} status check')
+
+    print_nginx_ips(nginx_collection)
 
 
 def run():
