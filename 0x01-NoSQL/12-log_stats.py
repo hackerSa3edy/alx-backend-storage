@@ -9,11 +9,11 @@ def print_nginx_request_logs(nginx_collection):
 
     Args:
         nginx_collection (pymongo.collection.Collection): The MongoDB
-            collection object for Nginx logs.
+        collection object for Nginx logs.
 
     Prints:
         The total number of logs, the count of each HTTP method, and the count
-            of status checks.
+        of status checks.
     """
     print('{} logs'.format(nginx_collection.count_documents({})))
 
@@ -24,9 +24,7 @@ def print_nginx_request_logs(nginx_collection):
         print('\tmethod {}: {}'.format(method, method_count))
 
     status_checks_count = nginx_collection.count_documents(
-        {'method': 'GET', 'path': '/status'}
-        )
-
+        {'method': 'GET', 'path': '/status'})
     print('{} status check'.format(status_checks_count))
 
 

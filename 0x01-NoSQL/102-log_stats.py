@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Log stats - new version"""
-
+"""Script that provides some stats about Nginx logs stored in MongoDB"""
 from pymongo import MongoClient
 
 
@@ -10,7 +9,7 @@ def print_nginx_ips(nginx_collection):
 
     Args:
         nginx_collection (pymongo.collection.Collection): The MongoDB
-            collection object for Nginx logs.
+        collection object for Nginx logs.
     """
     print('IPs:')
     request_logs = nginx_collection.aggregate(
@@ -38,7 +37,11 @@ def print_nginx_request_logs(nginx_collection):
 
     Args:
         nginx_collection (pymongo.collection.Collection): The MongoDB
-            collection object for Nginx logs.
+        collection object for Nginx logs.
+
+    Prints:
+        The total number of logs, the count of each HTTP method, and the count
+        of status checks.
     """
     total_logs = nginx_collection.count_documents({})
     print(f'{total_logs} logs')
